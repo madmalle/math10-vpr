@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ВПР математика 10. Задание 14 и 16</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+<style>
+:root{
+  --bg:#f6efe6; --card:#fffdfa; --card-soft:#fbf5ec;
+  --line:#e6d8c6; --line-soft:#f0e6d8;
+  --text:#41332a; --muted:#8c7767;
+  --primary:#9c6b4a; --accent:#c9a27c;
+  --ok:#4b8a5a; --ok-bg:#eaf6ec;
+  --err:#b1503f; --err-bg:#fdecea;
+  --radius:18px; --shadow:0 6px 22px rgba(124,92,66,.10);
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:130px}
+body{
+  margin:0; font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color:var(--text); line-height:1.6;
+  background:
+    radial-gradient(1100px 520px at 8% -8%, #fdf7ee 0%, rgba(253,247,238,0) 60%),
+    radial-gradient(900px 480px at 108% 0%, #f2e4d3 0%, rgba(242,228,211,0) 58%),
+    var(--bg);
+  min-height:100vh;
+}
+.app-header{padding:26px 20px 16px;text-align:center}
+.app-header h1{
+  margin:0; font-size:clamp(20px,3.2vw,30px); font-weight:800;
+  letter-spacing:.2px; color:#5b3f2e;
+}
+.app-header .sub{margin-top:6px;font-size:14px;color:var(--muted)}
+.app-header .sub b{color:#8d5c3c}
+
+.tabs{
+  position:sticky; top:0; z-index:60;
+  background:rgba(246,239,230,.93);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  padding:10px 16px 8px;
+  box-shadow:0 4px 16px rgba(124,92,66,.06);
+}
+.tab-row{
+  display:flex; gap:8px; overflow-x:auto; padding:3px 0;
+  scrollbar-width:thin;
+}
+.tab-row::-webkit-scrollbar{height:6px}
+.tab-row::-webkit-scrollbar-thumb{background:#ddcab4;border-radius:6px}
+.tab-row + .tab-row{margin-top:6px}
+
+.tab{
+  border:1px solid transparent; background:#fffdf9; color:#6b5545;
+  padding:8px 18px; border-radius:999px; font-size:14px; font-weight:600;
+  font-family:inherit; cursor:pointer; white-space:nowrap;
+  transition:.18s ease; box-shadow:0 1px 4px rgba(124,92,66,.07);
+}
+.tab:hover{background:#f5ead9}
+.tab.active{
+  background:linear-gradient(180deg,#ab7550,#8a5a3b);
+  color:#fff; box-shadow:0 5px 14px rgba(138,90,59,.35);
+}
+.tab.secondary{
+  background:#f2e6d7; font-size:13px; padding:6px 15px; font-weight:600;
+}
+.tab.secondary.active{
+  background:linear-gradient(180deg,#8f6040,#714a30); color:#fff;
+}
+
+.content{
+  max-width:1180px; margin:0 auto; padding:22px 16px 70px;
+  display:grid; gap:20px; grid-template-columns:1fr;
+}
+@media(min-width:1000px){
+  .content{grid-template-columns:1fr 1fr;}
+  .topic-title{grid-column:1/-1;}
+  .card-example{grid-column:1/-1;}
+}
+.topic-title{
+  font-size:14px; font-weight:700; color:var(--muted);
+  letter-spacing:.4px; text-transform:uppercase; padding-left:4px;
+}
+.topic-title span{color:#8d5c3c}
+
+.card{
+  background:var(--card); border:1px solid var(--line);
+  border-radius:var(--radius); padding:22px;
+  box-shadow:var(--shadow);
+  animation:cardIn .28s ease; overflow:hidden;
+}
+@keyframes cardIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.card-example{border-top:4px solid #c9a27c}
+.card-practice{border-top:4px solid #8fa891}
+
+.card-head{
+  display:flex; align-items:center; gap:10px;
+  flex-wrap:wrap; margin-bottom:14px;
+}
+.card-head h2{
+  margin:0; font-size:19px; font-weight:800; color:#5b3f2e;
+}
+.badge{
+  font-size:11.5px; font-weight:800; letter-spacing:.6px;
+  text-transform:uppercase; padding:3px 11px; border-radius:999px;
+}
+.badge-example{background:#f4e6d3;color:#8d5c3c}
+.badge-practice{background:#e4efe6;color:#416e4c}
+
+.condition{
+  margin:0 0 16px; padding:14px 16px; background:var(--card-soft);
+  border-left:4px solid var(--accent); border-radius:0 12px 12px 0;
+  font-size:15.5px;
+}
+
+.idea{
+  background:linear-gradient(180deg,#fdf3e4,#fbf0e0);
+  border:1px dashed #dcc09b; border-radius:14px;
+  padding:14px 16px; margin-bottom:18px;
+}
+.idea-title{
+  font-weight:800; font-size:13px; letter-spacing:.5px;
+  text-transform:uppercase; color:#a06a3f; margin-bottom:6px;
+}
+.idea-text{font-size:15px}
+
+.steps-title{
+  font-weight:800; font-size:13px; letter-spacing:.5px;
+  text-transform:uppercase; color:var(--muted); margin:6px 0 10px;
+}
+.step{
+  display:flex; gap:11px; padding:9px 0;
+  border-bottom:1px dashed var(--line-soft);
+}
+.step:last-child{border-bottom:none}
+.step-num{
+  flex:0 0 26px; height:26px; border-radius:50%;
+  background:#f2e3d0; color:#8d5c3c; font-size:13px; font-weight:800;
+  display:flex; align-items:center; justify-content:center; margin-top:2px;
+}
+.step-text{flex:1;min-width:0;font-size:15.5px;overflow-x:auto}
+
+.blank,.main-input{
+  font-family:inherit; color:#3d2f26; background:#fffaf2;
+  border:1.6px solid #d9c3a5; border-radius:8px;
+  padding:3px 8px; text-align:center; outline:none;
+  transition:.16s ease;
+}
+.blank{
+  width:88px; min-width:66px; margin:0 2px;
+  vertical-align:middle; display:inline-block; font-size:15px;
+}
+.blank:focus,.main-input:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(156,107,74,.16);
+}
+.blank.correct{border-color:var(--ok);background:var(--ok-bg)}
+.blank.wrong{border-color:var(--err);background:var(--err-bg)}
+
+.main-input{
+  width:170px; text-align:left; padding:9px 12px; font-size:15px;
+}
+
+.answer-row{
+  display:flex; align-items:center; gap:10px;
+  flex-wrap:wrap; margin-bottom:10px;
+}
+.answer-row label{font-weight:700;color:#6b5545}
+
+.feedback{min-height:24px;font-size:14.5px;font-weight:600;margin-bottom:6px}
+.feedback.ok{color:var(--ok)}
+.feedback.err{color:var(--err)}
+.feedback.neutral{color:var(--muted);font-weight:500}
+
+.btn{
+  border:none; border-radius:11px; padding:9px 17px;
+  font-size:14px; font-weight:700; font-family:inherit;
+  cursor:pointer; transition:.18s ease;
+}
+.btn-primary{
+  background:linear-gradient(180deg,#ab7550,#8a5a3b); color:#fff;
+  box-shadow:0 4px 12px rgba(138,90,59,.30);
+}
+.btn-primary:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.btn-ghost{
+  background:#f2e6d7; color:#6b5545; border:1px solid #e6d5c0;
+}
+.btn-ghost:hover{background:#ecdfcc}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;filter:none}
+
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+
+.hints{margin-top:12px;display:grid;gap:8px}
+.hint{
+  background:#fdf6ea; border:1px solid #ecdcc4;
+  border-left:4px solid #d8ab6e; border-radius:0 10px 10px 0;
+  padding:10px 14px; font-size:14.5px; animation:cardIn .22s ease;
+}
+.hint-num{font-weight:800;color:#a06a3f}
+
+.solution{
+  margin-top:16px; padding:16px; background:#fbf6ee;
+  border:1px dashed #dcc09b; border-radius:14px; animation:cardIn .25s ease;
+}
+.solution-title{
+  font-weight:800; font-size:13px; letter-spacing:.5px;
+  text-transform:uppercase; color:var(--muted); margin-bottom:8px;
+}
+.solution-tools{
+  display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+  margin-top:14px; padding-top:12px; border-top:1px dashed #e3d3bd;
+}
+.blank-score{font-size:14px;font-weight:700}
+.blank-score.ok{color:var(--ok)}
+.blank-score.err{color:var(--err)}
+.blank-score.neutral{color:var(--muted)}
+
+.hidden{display:none !important}
+.katex{font-size:1.03em}
+.katex-display{margin:.4em 0}
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <h1>ВПР математика 10. Задание 14 и 16</h1>
+  <div class="sub">Вероятность: <b>классическая</b> и <b>условная</b></div>
+</header>
+
+<nav class="tabs" id="nav">
+  <div class="tab-row" id="sectionTabs"></div>
+  <div class="tab-row" id="topicTabs"></div>
+</nav>
+
+<main class="content" id="content"></main>
+
+<script>
+/* =========================================================
+   1. ХРАНИЛИЩЕ ПОЛЕЙ ВВОДА
+   ========================================================= */
+const inputStore = {};
+let inputSeq = 0;
+
+function b(answer) {
+  const id = 'in' + (++inputSeq);
+  inputStore[id] = { answer: String(answer) };
+  return `<input data-id="${id}" data-answer="${answer}" type="text">`;
+}
+
+const R = String.raw;
+
+/* =========================================================
+   2. ДАННЫЕ: 12 тем × (1 пример + 2 практики) = 36 задач
+   ========================================================= */
+const groups = [
+/* ============ ЗАДАЧА 1: МАРКЕРЫ ДОСКИ ============ */
+{
+  id: 1, section: 'Классическая вероятность', topic: 'Задача 1',
+  source: {
+    condition: R`Под классной доской в коробке лежат \(16\) чёрных и \(24\) синих маркеров для доски. Из коробки берут случайный маркер. Найдите вероятность того, что он окажется синим.`,
+    idea: R`Вероятность — это доля благоприятных исходов среди всех равновозможных: \(P=\dfrac{m}{n}\). Считаем, сколько всего предметов, и сколько из них нужного цвета.`,
+    steps: [
+      R`Находим общее число маркеров: \(16+24=40\).`,
+      R`Благоприятные исходы — синие маркеры, их \(24\).`,
+      R`По классическому определению: \(P=\dfrac{24}{40}\).`,
+      R`Сокращаем и переводим в десятичную: \(P=\dfrac{6}{10}=0{,}6\).`,
+      R`Ответ: \(0{,}6\).`
+    ]
+  },
+  practices: [
+  {
+    variant: 2,
+    condition: R`Под классной доской в коробке лежат \(12\) чёрных и \(18\) синих маркеров для доски. Из коробки берут случайный маркер. Найдите вероятность того, что он окажется синим.`,
+    answer: '0,6',
+    hints: [
+      R`Сначала сложи чёрные и синие маркеры — узнаешь общее число.`,
+      R`Благоприятные исходы — это синие маркеры, их \(18\).`,
+      R`Раздели \(18\) на общее число маркеров и переведи дробь в десятичную.`
+    ],
+    solution: { steps: [
+      R`Всего маркеров: \(12+18=${b('30')}\).`,
+      R`Синих маркеров: \(18\).`,
+      R`Вероятность: \(P=\dfrac{18}{30}=${b('0,6')}\).`,
+      R`Ответ: \(0{,}6\).`
+    ]}
+  },
+  {
+    variant: 3,
+    condition: R`Под классной доской в коробке лежат \(17\) чёрных и \(8\) синих маркеров для доски. Из коробки берут случайный маркер. Найдите вероятность того, что он окажется синим.`,
+    answer: '0,32',
+    hints: [
+      R`Сложи \(17\) и \(8\) — это общее число маркеров.`,
+      R`Синих маркеров в коробке \(8\).`,
+      R`Раздели \(8\) на общее число и переведи в десятичную дробь.`
+    ],
+    solution: { steps: [
+      R`Всего маркеров: \(17+8=${b('25')}\).`,
+      R`Синих маркеров: \(8\).`,
+      R`Вероятность: \(P=\dfrac{8}{25}=${b('0,32')}\).`,
+      R`Ответ: \(0{,}32\).`
+    ]}
+  }]
+},
+
+/* ============ ЗАДАЧА 2: МОНЕТЫ 20/25 БРОСКОВ ============ */
+{
+  id: 2, section: 'Монеты', topic: 'Задача 2',
+  source: {
+    condition: R`Монету бросили \(20\) раз. Известно, что орёл выпал \(17\) раз. Найдите вероятность того, что при шестом по счёту броске выпала решка.`,
+    idea: R`Здесь работает статистическая (эмпирическая) вероятность: \(P=\dfrac{\text{число решек}}{\text{всего бросков}}\). Сначала находим, сколько раз выпала решка.`,
+    steps: [
+      R`Всего бросков \(20\), из них орлов \(17\).`,
+      R`Значит, решек было: \(20-17=3\).`,
+      R`Статистическая вероятность решки: \(P=\dfrac{3}{20}\).`,
+      R`Переводим в десятичную: \(P=\dfrac{15}{100}=0{,}15\).`,
+      R`Ответ: \(0{,}15\).`
+    ]
+  },
+  practices: [
+  {
+    variant: 2,
+    condition: R`Монету бросили \(25\) раз. Известно, что орёл выпал \(17\) раз. Найдите вероятность того, что при седьмом по счёту броске выпала решка.`,
+    answer: '0,32',
+    hints: [
+      R`Найди, сколько раз выпала решка: \(25-17\).`,
+      R`Решек \(8\).`,
+      R`Раздели \(8\) на \(25\) и переведи в десятичную.`
+    ],
+    solution: { steps: [
+      R`Всего бросков: \(25\).`,
+      R`Решек: \(25-17=${b('8')}\).`,
+      R`Вероятность решки: \(P=\dfrac{8}{25}=${b('0,32')}\).`,
+      R`Ответ: \(0{,}32\).`
+    ]}
+  },
+  {
+    variant: 3,
+    condition: R`Монету бросили \(20\) раз. Известно, что орёл выпал \(15\) раз. Найдите вероятность того, что при седьмом по счёту броске выпала решка.`,
+    answer: '0,25',
+    hints: [
+      R`Решек было \(20-15\).`,
+      R`Решек \(5\).`,
+      R`Раздели \(5\) на \(20\) и переведи в десятичную.`
+    ],
+    solution: { steps: [
+      R`Всего бросков: \(20\).`,
+      R`Решек: \(20-15=${b('5')}\).`,
+      R`Вероятность решки: \(P=\dfrac{5}{20}=${b('0,25')}\).`,
+      R`Ответ: \(0{,}25\).`
+    ]}
+  }]
+},
+
+/* ============ ЗАДАЧА 3: МОНЕТЫ 50 БРОСКОВ ============ */
+{
+  id: 3, section: 'Монеты', topic: 'Задача 3',
+  source: {
+    condition: R`Монету бросили \(50\) раз. Известно, что орёл выпал \(18\) раз. Найдите вероятность того, что при седьмом по счёту броске выпала решка.`,
+    idea: R`Та же схема: находим количество решек и делим на общее число бросков, затем переводим дробь в десятичную.`,
+    steps: [
+      R`Всего бросков \(50\), орлов \(18\), значит решек: \(50-18=32\).`,
+      R`Вероятность решки: \(P=\dfrac{32}{50}\).`,
+      R`Умножим числитель и знаменатель на \(2\): \(P=\dfrac{64}{100}=0{,}64\).`,
+      R`Ответ: \(0{,}64\).`
+    ]
+  },
+  practices: [
+  {
+    variant: 2,
+    condition: R`Монету бросили \(50\) раз. Известно, что орёл выпал \(19\) раз. Найдите вероятность того, что при четвёртом по счёту броске выпала решка.`,
+    answer: '0,62',
+    hints: [
+      R`Решек было \(50-19\).`,
+      R`Решек \(31\).`,
+      R`Раздели \(31\) на \(50\). Удобно домножить на \(2\): \(\dfrac{62}{100}\).`
+    ],
+    solution: { steps: [
+      R`Всего бросков: \(50\).`,
+      R`Решек: \(50-19=${b('31')}\).`,
+      R`Вероятность: \(P=\dfrac{31}{50}=${b('0,62')}\).`,
+      R`Ответ: \(0{,}62\).`
+    ]}
+  },
+  {
+    variant: 3,
+    condition: R`Монету бросили \(50\) раз. Известно, что орёл выпал \(17\) раз. Найдите вероятность того, что при четвёртом по счёту броске выпала решка.`,
+    answer: '0,66',
+    hints: [
+      R`Решек было \(50-17\).`,
+      R`Решек \(33\).`,
+      R`Раздели \(33\) на \(50\). Удобно домножить на \(2\): \(\dfrac{66}{100}\).`
+    ],
+    solution: { steps: [
+      R`Всего бросков: \(50\).`,
+      R`Решек: \(50-17=${b('33')}\).`,
+      R`Вероятность: \(P=\dfrac{33}{50}=${b('0,66')}\).`,
+      R`Ответ: \(0{,}66\).`
+    ]}
+  }]
+},
+
+/* ============ ЗАДАЧА 4: МОНЕТЫ 4 БРОСКА ============ */
+{
+  id: 4, section: 'Монеты', topic: 'Задача 4',
+  source: {
+    condition: R`Симметричную монету бросают четыре раза. Известно, что решка выпала ровно три раза. Найдите вероятность того, что в первый раз выпал орёл.`,
+    idea: R`Перебираем все равновозможные варианты, удовлетворяющие условию. Если решек три, значит орёл один — и он может стоять на любом из \(4\) мест. Нас устраивает только одно положение.`,
+    steps: [
+      R`Всего бросков \(4\), решек \(3\), значит орёл выпал ровно \(1\) раз.`,
+      R`Все возможные варианты (где стоит орёл): ОРРР, РОРР, РРОР, РРРО — всего \(4\).`,
+      R`Нас устраивает только вариант, где орёл первый: ОРРР — \(1\) вариант.`,
+      R`Вероятность: \(P=\dfrac{1}{4}=0{,}25\).`,
+      R`Ответ: \(0{,}25\).`
+    ]
+  },
+  practices: [
+  {
+    variant: 2,
+    condition: R`Симметричную монету бросают четыре раза. Известно, что решка выпала ровно три раза. Найдите вероятность того, что в третий раз выпал орёл.`,
+    answer: '0,25',
+    hints: [
+      R`Решек \(3\), значит орёл один.`,
+      R`Орёл может стоять на любом из \(4\) мест — всего \(4\) равновозможных варианта.`,
+      R`Нам подходит ровно \(1\) вариант (орёл именно на 3-м месте).`
+    ],
+    solution: { steps: [
+      R`Всего вариантов, где орёл один из четырёх: \(${b('4')}\).`,
+      R`Подходящий вариант (орёл 3-й) — \(${b('1')}\).`,
+      R`Вероятность: \(P=\dfrac{1}{4}=${b('0,25')}\).`,
+      R`Ответ: \(0{,}25\).`
+    ]}
+  },
+  {
+    variant: 3,
+    condition: R`Симметричную монету бросают четыре раза. Известно, что орёл выпал ровно два раза. Найдите вероятность того, что в первый раз выпала решка.`,
+    answer: '0,5',
+    hints: [
+      R`Всего \(2\) орла и \(2\) решки. Число способов выбрать \(2\) места для орлов — \(\binom{4}{2}=6\).`,
+      R`Если 1-й бросок — решка, то из оставшихся \(3\) мест орлы занимают \(2\): это \(\binom{3}{2}=3\) варианта.`,
+      R`Раздели \(3\) на \(6\) — получишь искомую вероятность.`
+    ],
+    solution: { steps: [
+      R`Всего вариантов с двумя орлами из четырёх: \(${b('6')}\).`,
+      R`Вариантов, где 1-й бросок — решка: \(${b('3')}\).`,
+      R`Вероятность: \(P=\dfrac{3}{6}=${b('0,5')}\).`,
+      R`Ответ: \(0{,}5\).`
+    ]}
+  }]
+},
+
+/* ============ ЗАДАЧА 5: ЭЛЕМЕНТАРНЫЕ ИСХОДЫ ============ */
+{
+  id: 5, section: 'Классическая вероятность', topic: 'Задача 5',
+  source: {
+    condition: R`В случайном опыте \(N=70\) равновозможных элементарных событий, из которых \(N(A)=28\) благоприятствуют событию \(A\). Вычислите вероятность события \(A\).`,
+    idea: R`Если все исходы равновозможны: \(P(A)=\dfrac{N(A)}{N}\).`,
+    steps: [
+      R`По условию \(N=70\), \(N(A)=28\).`,
+      R`Подставляем: \(P(A)=\dfrac{28}{70}\).`,
+      R`Сокращаем на \(7\): \(P(A)=\dfrac{4}{10}=0{,}4\).`,
+      R`Ответ: \(0{,}4\).`
+    ]
+  },
+  practices: [
+  {
+    variant: 2,
+    condition: R`В случайном опыте \(N=56\) равновозможных элементарных событий, из которых \(N(A)=14\) благоприятствуют событию \(A\). Вычислите вероятность события \(A\).`,
+    answer: '0,25',
+    hints: [
+      R`Формула: \(P(A)=\dfrac{N(A)}{N}\).`,
+      R`Подставь \(N=56\), \(N(A)=14\).`,
+      R`Сократи дробь \(\dfrac{14}{56}\) на \(14\).`
+    ],
+    solution: { steps: [
+      R`Всего исходов: \(N=${b('56')}\).`,
+      R`Благоприятных: \(N(A)=${b('14')}\).`,
+      R`Тогда \(P(A)=\dfrac{14}{56}=${b('0,25')}\).`,
+      R`Ответ: \(0{,}25\).`
+    ]}
+  },
+  {
+    variant: 3,
+    condition: R`В случайном опыте \(N=45\) равновозможных элементарных событий, из которых \(N(A)=18\) благоприятствуют событию \(A\). Вычислите вероятность события \(A\).`,
+    answer: '0,4',
+    hints: [
+      R`Формула: \(P(A)=\dfrac{N(A)}{N}\).`,
+      R`Подставь \(N=45\), \(N(A)=18\).`,
+      R`Сократи дробь \(\dfrac{18}{45}\) на \(9\): получишь \(\dfrac{2}{5}\).`
+    ],
+    solution: { steps: [
+      R`Всего исходов: \(N=${b('45')}\).`,
+      R`Благоприятных: \(N(A)=${b('18')}\).`,
+      R`Тогда \(P(A)=\dfrac{18}{45}=${b('0,4')}\).`,
+      R`Ответ: \(0{,}4\).`
+    ]}
+  }]
+},
+
+/* ============ ЗАДАЧА 6: ВИНТЫ ============ */
+{
+  id: 6, section: 'Классическая вероятность', topic: 'Задача 6',
+  source: {
+    condition: R`В ящике \(54\) винта с левой резьбой и \(46\) таких же по виду винтов с правой резьбой. Рабочий не глядя берёт из ящика один винт. Какова вероятность того, что этот винт окажется с левой резьбой?`,
+    idea: R`Считаем общее число винтов, затем делим число «нужных» на общее.`,
+    steps: [
+      R`Всего винтов: \(54+46=100\).`,
+      R`Благоприятные исходы (левая резьба): \(54\).`,
+      R`Вероятность: \(P=\dfrac{54}{100}=0{,}54\).`,
+      R`Ответ: \(0{,}54\).`
+    ]
+  },
+  practices: [
+  {
+    variant: 2,
+    condition: R`В ящике \(72\) винта с левой резьбой и \(28\) таких же по виду винтов с правой резьбой. Рабочий не глядя берёт из ящика один винт. Какова вероятность того, что этот винт окажется с левой резьбой?`,
+    answer: '0,72',
+    hints: [
+      R`Сложи \(72\) и \(28\) — получишь общее число винтов.`,
+      R`С левой резьбой \(72\) винта.`,
+      R`Раздели \(72\) на \(100\) и запиши десятичной дробью.`
+    ],
+    solution: { steps: [
+      R`Всего винтов: \(72+28=${b('100')}\).`,
+      R`С левой резьбой: \(72\).`,
+      R`Вероятность: \(P=\dfrac{72}{100}=${b('0,72')}\).`,
+      R`Ответ: \(0{,}72\).`
+    ]}
+  },
+  {
+    variant: 3,
+    condition: R`В ящике \(16\) винтов с левой резьбой и \(84\) таких же по виду винтов с правой резьбой. Рабочий не глядя берёт из ящика один винт. Какова вероятность того, что этот винт окажется с левой резьбой?`,
+    answer: '0,16',
+    hints: [
+      R`Сложи \(16\) и \(84\) — общее число винтов.`,
+      R`С левой резьбой \(16\) винтов.`,
+      R`Раздели \(16\) на \(100\) и запиши десятичной дробью.`
+    ],
+    solution: { steps: [
+      R`Всего винтов: \(16+84=${b('100')}\).`,
+      R`С левой резьбой: \(16\).`,
+      R`Вероятность: \(P=\dfrac{16}{100}=${b('0,16')}\).`,
+      R`Ответ: \(0{,}16\).`
+    ]}
+  }]
+},
+
+/* ============ ЗАДАЧА 7: ЦВЕТНЫЕ МАРКЕРЫ ============ */
+{
+  id: 7, section: 'Классическая вероятность', topic: 'Задача 7',
+  source: {
+    condition: R`Из коробки, в которой лежат \(15\) чёрных и \(5\) красных маркеров, достают один случайный маркер. Найдите вероятность того, что он окажется красным.`,
+    idea: R`Общее число маркеров — знаменатель, число красных — числитель.`,
+    steps: [
+      R`Всего маркеров: \(15+5=20\).`,
+      R`Красных маркеров: \(5\).`,
+      R`Вероятность: \(P=\dfrac{5}{20}=\dfrac{1}{4}=0{,}25\).`,
+      R`Ответ: \(0{,}25\).`
+    ]
+  },
+  practices: [
+  {
+    variant: 2,
+    condition: R`Из коробки, в которой лежат \(12\) чёрных и \(8\) красных маркеров, достают один случайный маркер. Найдите вероятность того, что он окажется чёрным.`,
+    answer: '0,6',
+    hints: [
+      R`Всего маркеров \(12+8\).`,
+      R`Чёрных маркеров \(12\).`,
+      R`Раздели \(12\) на общее число и переведи в десятичную.`
+    ],
+    solution: { steps: [
+      R`Всего маркеров: \(12+8=${b('20')}\).`,
+      R`Чёрных: \(12\).`,
+      R`Вероятность: \(P=\dfrac{12}{20}=${b('0,6')}\).`,
+      R`Ответ: \(0{,}6\).`
+    ]}
+  },
+  {
+    variant: 3,
+    condition: R`Из коробки, в которой лежат \(11\) чёрных и \(9\) красных маркеров, достают один случайный маркер. Найдите вероятность того, что он окажется красным.`,
+    answer: '0,45',
+    hints: [
+      R`Всего маркеров \(11+9\).`,
+      R`Красных маркеров \(9\).`,
+      R`Раздели \(9\) на общее число. Удобно домножить на \(5\): \(\dfrac{45}{100}\).`
+    ],
+    solution: { steps: [
+      R`Всего маркеров: \(11+9=${b('20')}\).`,
+      R`Красных: \(9\).`,
+      R`Вероятность: \(P=\dfrac{9}{20}=${b('0,45')}\).`,
+      R`Ответ: \(0{,}45\).`
+    ]}
+  }]
+},
+
+/* ============ ЗАДАЧА 8: КОНКУРС ============ */
+{
+  id: 8, section: 'Сложные события', topic: 'Задача 8',
+  source: {
+    condition: R`В школьном конкурсе чтецов \(10\) участников: трое из 5 класса, четверо из 6 класса и трое из 7 класса. Порядок выступлений определяется жребием. Какова вероятность того, что первым и последним будут выступать пятиклассники?`,
+    idea: R`Сначала выбираем первого участника, затем — последнего из оставшихся. После первого выбора общее число уменьшается на \(1\), поэтому вероятности перемножаются.`,
+    steps: [
+      R`Вероятность, что первым выступит пятиклассник: \(\dfrac{3}{10}\).`,
+      R`После этого осталось \(9\) участников, среди них \(2\) пятиклассника.`,
+      R`Вероятность, что последним тоже станет пятиклассник: \(\dfrac{2}{9}\).`,
+      R`Перемножаем: \(P=\dfrac{3}{10}\cdot\dfrac{2}{9}=\dfrac{6}{90}=\dfrac{1}{15}\).`,
+      R`Ответ: \(\dfrac{1}{15}\) (это \(\approx 0{,}067\)).`
+    ]
+  },
+  practices: [
+  {
+    variant: 2,
+    condition: R`В парном танцевальном конкурсе \(21\) участник: восемь пар из школы № 1, шесть из школы № 2 и семь из школы № 3. Порядок выступлений определяется жребием. Какова вероятность того, что первой и последней будут выступать пары из школы № 3?`,
+    answer: '0,1',
+    hints: [
+      R`Всего пар \(21\), пар из школы № 3 — \(7\). Найди вероятность первого выбора.`,
+      R`После первого выбора останется \(20\) пар, из них \(6\) — из школы № 3.`,
+      R`Перемножь две вероятности: \(\dfrac{7}{21}\cdot\dfrac{6}{20}\) — получишь десятичную дробь.`
+    ],
+    solution: { steps: [
+      R`Всего пар \(21\), пар из № 3 — \(7\).`,
+      R`Первый выбор: \(P_1=\dfrac{7}{21}\).`,
+      R`После него осталось \(${b('20')}\) пар, из № 3 — \(${b('6')}\).`,
+      R`Второй выбор: \(P_2=\dfrac{6}{20}\).`,
+      R`Итог: \(P=P_1\cdot P_2=\dfrac{7}{21}\cdot\dfrac{6}{20}=${b('0,1')}\).`,
+      R`Ответ: \(0{,}1\).`
+    ]}
+  },
+  {
+    variant: 3,
+    condition: R`В районном конкурсе песни \(15\) участников: четверо из школы № 1, четверо из школы № 2 и семеро из школы № 3. Порядок выступлений определяется жребием. Какова вероятность того, что первым и последним будут выступать представители школы № 3?`,
+    answer: '0,2',
+    hints: [
+      R`Всего \(15\) участников, из школы № 3 — \(7\). Вероятность первого выбора \(\dfrac{7}{15}\).`,
+      R`После первого выбора останется \(14\) участников, из них \(6\) — из школы № 3.`,
+      R`Перемножь: \(\dfrac{7}{15}\cdot\dfrac{6}{14}\).`
+    ],
+    solution: { steps: [
+      R`Всего участников \(15\), из № 3 — \(7\).`,
+      R`Первый выбор: \(P_1=\dfrac{7}{15}\).`,
+      R`Осталось \(${b('14')}\) участников, из № 3 — \(${b('6')}\).`,
+      R`Второй выбор: \(P_2=\dfrac{6}{14}\).`,
+      R`Итог: \(P=\dfrac{7}{15}\cdot\dfrac{6}{14}=${b('0,2')}\).`,
+      R`Ответ: \(0{,}2\).`
+    ]}
+  }]
+},
+
+/* ============ ЗАДАЧА 9: КУБИК > ============ */
+{
+  id: 9, section: 'Кубики', topic: 'Задача 9',
+  source: {
+    condition: R`Симметричный игральный кубик бросили два раза. Известно, что при первом броске выпало больше очков, чем при втором. Какова вероятность того, что в сумме выпало семь очков?`,
+    idea: R`Это условная вероятность: знаменатель — все исходы, удовлетворяющие условию, числитель — те из них, где сумма равна нужному числу.`,
+    steps: [
+      R`Всего пар \((a;b)\) с условием \(a>b\): \(5+4+3+2+1=15\).`,
+      R`Пары с суммой \(7\) и \(a>b\): \((4;3)\), \((5;2)\), \((6;1)\) — всего \(3\).`,
+      R`Вероятность: \(P=\dfrac{3}{15}=\dfrac{1}{5}=0{,}2\).`,
+      R`Ответ: \(0{,}2\).`
+    ]
+  },
+  practices: [
+  {
+    variant: 2,
+    condition: R`Симметричный игральный кубик бросили два раза. Известно, что при первом броске выпало меньше очков, чем при втором. Какова вероятность того, что в сумме выпало восемь очков?`,
+    answer: '2/15',
+    hints: [
+      R`Всего пар с условием «первый < второй» столько же, сколько и «первый > второй»: \(15\).`,
+      R`Найди пары с суммой \(8\) и первым \(<\) второго: \((2;6)\), \((3;5)\).`,
+      R`Таких пар \(2\). Раздели на \(15\).`
+    ],
+    solution: { steps: [
+      R`Всего пар с первым \(<\) второго: \(${b('15')}\).`,
+      R`Пар с суммой \(8\) и первым \(<\) второго: \(${b('2')}\).`,
+      R`Вероятность: \(P=${b('2/15')}\).`,
+      R`Ответ: \(\dfrac{2}{15}\) (\(\approx 0{,}133\)).`
+    ]}
+  },
+  {
+    variant: 3,
+    condition: R`Симметричный игральный кубик бросили два раза. Известно, что при первом броске выпало больше очков, чем при втором. Какова вероятность того, что в сумме выпало шесть очков?`,
+    answer: '2/15',
+    hints: [
+      R`Всего пар с первым \(>\) второго: \(15\).`,
+      R`Найди пары с суммой \(6\) и первым \(>\) второго: \((5;1)\), \((4;2)\).`,
+      R`Таких пар \(2\). Раздели на \(15\).`
+    ],
+    solution: { steps: [
+      R`Всего пар с первым \(>\) второго: \(${b('15')}\).`,
+      R`Пар с суммой \(6\) и первым \(>\) второго: \(${b('2')}\).`,
+      R`Вероятность: \(P=${b('2/15')}\).`,
+      R`Ответ: \(\dfrac{2}{15}\).`
+    ]}
+  }]
+},
+
+/* ============ ЗАДАЧА 10: КУБИК ≥ ============ */
+{
+  id: 10, section: 'Кубики', topic: 'Задача 10',
+  source: {
+    condition: R`Игральный кубик бросают дважды. При первом броске выпало не меньше очков, чем при втором. Какова вероятность того, что в сумме выпало \(3\) очка?`,
+    idea: R`Условие «не меньше» — это \(a\ge b\), включая равенство. Всего таких пар \(21\) (это \(\frac{6\cdot 7}{2}\)).`,
+    steps: [
+      R`Всего пар \((a;b)\) с условием \(a\ge b\): \(6+5+4+3+2+1=21\).`,
+      R`Пар с суммой \(3\): \((1;2)\) и \((2;1)\). Условию \(a\ge b\) удовлетворяет только \((2;1)\) — \(1\) пара.`,
+      R`Вероятность: \(P=\dfrac{1}{21}\).`,
+      R`Ответ: \(\dfrac{1}{21}\) (\(\approx 0{,}048\)).`
+    ]
+  },
+  practices: [
+  {
+    variant: 2,
+    condition: R`Игральный кубик бросают дважды. При первом броске выпало не меньше очков, чем при втором. Какова вероятность того, что в сумме выпало \(4\) очка?`,
+    answer: '2/21',
+    hints: [
+      R`Всего пар с условием \(a\ge b\): \(21\).`,
+      R`Пары с суммой \(4\): \((1;3)\), \((2;2)\), \((3;1)\). Условию \(a\ge b\) удовлетворяют \((2;2)\) и \((3;1)\).`,
+      R`Таких пар \(2\). Раздели на \(21\).`
+    ],
+    solution: { steps: [
+      R`Всего пар с условием \(a\ge b\): \(${b('21')}\).`,
+      R`Пары с суммой \(4\) и \(a\ge b\): \((2;2)\) и \((3;1)\) — \(${b('2')}\).`,
+      R`Вероятность: \(P=${b('2/21')}\).`,
+      R`Ответ: \(\dfrac{2}{21}\).`
+    ]}
+  },
+  {
+    variant: 3,
+    condition: R`Игральный кубик бросают дважды. При первом броске выпало не меньше очков, чем при втором. Какова вероятность того, что в сумме выпало \(2\) очка?`,
+    answer: '1/21',
+    hints: [
+      R`Всего пар с условием \(a\ge b\): \(21\).`,
+      R`Сумма \(2\) — единственный вариант \((1;1)\).`,
+      R`Таких пар \(1\). Раздели на \(21\).`
+    ],
+    solution: { steps: [
+      R`Всего пар с условием \(a\ge b\): \(${b('21')}\).`,
+      R`Пар с суммой \(2\) и \(a\ge b\): \(${b('1')}\) (это \((1;1)\)).`,
+      R`Вероятность: \(P=${b('1/21')}\).`,
+      R`Ответ: \(\dfrac{1}{21}\).`
+    ]}
+  }]
+},
+
+/* ============ ЗАДАЧА 11: КУБИК СУММА ============ */
+{
+  id: 11, section: 'Кубики', topic: 'Задача 11',
+  source: {
+    condition: R`Симметричный игральный кубик бросают два раза. Сумма выпавших очков оказалась не меньше \(4\), но не больше \(9\). Какова при этом условии вероятность того, что во второй раз выпало столько же очков, сколько в первый?`,
+    idea: R`Считаем все пары, попадающие в диапазон суммы (знаменатель), и те из них, где числа равны (числитель).`,
+    steps: [
+      R`Пары с суммой \(4\le s\le 9\): для \(s=4\) — \(3\) пары, \(s=5\) — \(4\), \(s=6\) — \(5\), \(s=7\) — \(6\), \(s=8\) — \(5\), \(s=9\) — \(4\). Всего \(27\).`,
+      R`Равные пары в диапазоне: \((2;2)\) (сумма \(4\)), \((3;3)\) (\(6\)), \((4;4)\) (\(8\)) — всего \(3\).`,
+      R`Вероятность: \(P=\dfrac{3}{27}=\dfrac{1}{9}\).`,
+      R`Ответ: \(\dfrac{1}{9}\) (\(\approx 0{,}111\)).`
+    ]
+  },
+  practices: [
+  {
+    variant: 2,
+    condition: R`Симметричный игральный кубик бросают два раза. Сумма выпавших очков оказалась не меньше \(5\), но не больше \(8\). Какова при этом условии вероятность того, что во второй раз выпало столько же очков, сколько в первый?`,
+    answer: '0,1',
+    hints: [
+      R`Посчитай пары с суммой \(5, 6, 7, 8\): \(4, 5, 6, 5\). Сложи — получишь знаменатель.`,
+      R`Равные пары в диапазоне: \((3;3)\) и \((4;4)\) — всего \(2\).`,
+      R`Раздели \(2\) на общее число пар и переведи в десятичную.`
+    ],
+    solution: { steps: [
+      R`Всего пар с \(5\le s\le 8\): \(4+5+6+5=${b('20')}\).`,
+      R`Равные пары в диапазоне: \(${b('2')}\) — \((3;3)\) и \((4;4)\).`,
+      R`Вероятность: \(P=\dfrac{2}{20}=${b('0,1')}\).`,
+      R`Ответ: \(0{,}1\).`
+    ]}
+  },
+  {
+    variant: 3,
+    condition: R`Симметричный игральный кубик бросают два раза. Сумма выпавших очков оказалась не меньше \(5\), но не больше \(9\). Какова при этом условии вероятность того, что во второй раз выпало столько же очков, сколько в первый?`,
+    answer: '1/12',
+    hints: [
+      R`Суммы \(5, 6, 7, 8, 9\) дают \(4, 5, 6, 5, 4\) пар. Сложи — это знаменатель.`,
+      R`Равные пары в диапазоне: только \((3;3)\) и \((4;4)\) — \(2\) штуки.`,
+      R`Раздели \(2\) на общее число и сократи дробь.`
+    ],
+    solution: { steps: [
+      R`Всего пар с \(5\le s\le 9\): \(4+5+6+5+4=${b('24')}\).`,
+      R`Равные пары: \(${b('2')}\) — \((3;3)\) и \((4;4)\).`,
+      R`Вероятность: \(P=\dfrac{2}{24}=${b('1/12')}\).`,
+      R`Ответ: \(\dfrac{1}{12}\) (\(\approx 0{,}083\)).`
+    ]}
+  }]
+},
+
+/* ============ ЗАДАЧА 12: ФОРМУЛА ВКЛЮЧЕНИЙ ============ */
+{
+  id: 12, section: 'Сложные события', topic: 'Задача 12',
+  source: {
+    condition: R`В случайном опыте \(38\) элементарных исходов. Из них событию \(A\) благоприятствуют \(27\), а событию \(B\) — \(21\). Исходов, не благоприятствующих ни одному из событий \(A\) и \(B\), нет. Сколько элементарных событий благоприятствуют событию \(A\cap B\)?`,
+    idea: R`Если «лишних» исходов нет, то \(N(A\cup B)=N\). Формула включений-исключений: \(N(A\cap B)=N(A)+N(B)-N(A\cup B)\).`,
+    steps: [
+      R`Так как вне \(A\cup B\) исходов нет, \(N(A\cup B)=38\).`,
+      R`Формула: \(N(A\cap B)=N(A)+N(B)-N(A\cup B)\).`,
+      R`Подставляем: \(N(A\cap B)=27+21-38\).`,
+      R`Считаем: \(48-38=10\).`,
+      R`Ответ: \(10\).`
+    ]
+  },
+  practices: [
+  {
+    variant: 2,
+    condition: R`В случайном опыте \(37\) элементарных исходов. Из них событию \(A\) благоприятствуют \(23\), а событию \(B\) — \(17\). Исходов, не благоприятствующих ни одному из событий \(A\) и \(B\), нет. Сколько элементарных событий благоприятствуют событию \(A\cap B\)?`,
+    answer: '3',
+    hints: [
+      R`«Лишних» исходов нет, значит \(N(A\cup B)\) равно общему числу исходов.`,
+      R`Формула: \(N(A\cap B)=N(A)+N(B)-N(A\cup B)\).`,
+      R`Сложи \(23\) и \(17\), затем вычти \(37\).`
+    ],
+    solution: { steps: [
+      R`\(N(A\cup B)=${b('37')}\).`,
+      R`\(N(A)+N(B)=23+17=${b('40')}\).`,
+      R`\(N(A\cap B)=40-37=${b('3')}\).`,
+      R`Ответ: \(3\).`
+    ]}
+  },
+  {
+    variant: 3,
+    condition: R`В случайном опыте \(35\) элементарных исходов. Из них событию \(A\) благоприятствуют \(24\), а событию \(B\) — \(18\). Исходов, не благоприятствующих ни одному из событий \(A\) и \(B\), нет. Сколько элементарных событий благоприятствуют событию \(A\cap B\)?`,
+    answer: '7',
+    hints: [
+      R`Раз «лишних» нет, \(N(A\cup B)\) равно общему числу исходов.`,
+      R`Формула: \(N(A\cap B)=N(A)+N(B)-N(A\cup B)\).`,
+      R`Сложи \(24\) и \(18\), вычти \(35\).`
+    ],
+    solution: { steps: [
+      R`\(N(A\cup B)=${b('35')}\).`,
+      R`\(N(A)+N(B)=24+18=${b('42')}\).`,
+      R`\(N(A\cap B)=42-35=${b('7')}\).`,
+      R`Ответ: \(7\).`
+    ]}
+  }]
+}
+];
+
+/* =========================================================
+   3. KATEX + ВОССТАНОВЛЕНИЕ ПОЛЕЙ
+   ========================================================= */
+function prepareMath(text) {
+  return text.replace(/<input\b[^>]*data-id="([^"]+)"[^>]*>/g, function (m, id) {
+    return '\\htmlClass{slot_' + id + '}{\\square}';
+  });
+}
+
+function renderMath(el) {
+  if (typeof renderMathInElement !== 'function') return;
+  renderMathInElement(el, {
+    delimiters: [
+      { left: '\\[', right: '\\]', display: true },
+      { left: '\\(', right: '\\)', display: false }
+    ],
+    throwOnError: false,
+    trust: true
+  });
+}
+
+function restoreInputs(container) {
+  container.querySelectorAll('.katex-mathml').forEach(function (n) { n.remove(); });
+  Object.keys(inputStore).forEach(function (id) {
+    const slot = container.querySelector('.slot_' + id);
+    if (!slot) return;
+    const data = inputStore[id];
+    const inp = document.createElement('input');
+    inp.type = 'text';
+    inp.className = 'blank';
+    inp.dataset.id = id;
+    inp.dataset.answer = data.answer;
+    inp.autocomplete = 'off';
+    inp.spellcheck = false;
+    inp.size = Math.max(3, String(data.answer).length + 1);
+    inp.placeholder = '?';
+    slot.replaceWith(inp);
+  });
+}
+
+function renderSteps(container, steps) {
+  container.innerHTML = steps.map(function (s, i) {
+    return '<div class="step">' +
+             '<div class="step-num">' + (i + 1) + '</div>' +
+             '<div class="step-text">' + prepareMath(s) + '</div>' +
+           '</div>';
+  }).join('');
+  renderMath(container);
+  restoreInputs(container);
+}
+
+/* =========================================================
+   4. ПРОВЕРКА ОТВЕТОВ
+   ========================================================= */
+function parseNum(str) {
+  if (str === null || str === undefined) return NaN;
+  let s = String(str).trim().toLowerCase();
+  if (!s) return NaN;
+  s = s.replace(/\s+/g, '').replace(/,/g, '.');
+  s = s.replace(/[^0-9./\-]/g, '');
+  if (!s) return NaN;
+  const frac = s.match(/^(-?\d+(?:\.\d+)?)\/(-?\d+(?:\.\d+)?)$/);
+  if (frac) {
+    const a = parseFloat(frac[1]);
+    const c = parseFloat(frac[2]);
+    if (!c) return NaN;
+    return a / c;
+  }
+  const v = parseFloat(s);
+  return isNaN(v) ? NaN : v;
+}
+
+function answersMatch(user, correct) {
+  const u = parseNum(user);
+  const c = parseNum(correct);
+  if (isNaN(u) || isNaN(c)) return false;
+  const tol = Math.max(0.001, Math.abs(c) * 0.01);
+  return Math.abs(u - c) <= tol;
+}
+
+/* =========================================================
+   5. ПОСТРОЕНИЕ КАРТОЧЕК
+   ========================================================= */
+function buildExample(g) {
+  const s = g.source;
+  const card = document.createElement('section');
+  card.className = 'card card-example';
+  card.innerHTML =
+    '<div class="card-head">' +
+      '<span class="badge badge-example">Пример · Вариант 1</span>' +
+      '<h2>📖 Разбираем вместе</h2>' +
+    '</div>' +
+    '<p class="condition">' + s.condition + '</p>' +
+    '<div class="idea">' +
+      '<div class="idea-title">💡 Главная мысль</div>' +
+      '<div class="idea-text">' + s.idea + '</div>' +
+    '</div>' +
+    '<div class="steps-title">Пошаговое решение</div>' +
+    '<div class="steps"></div>';
+  renderMath(card);
+  renderSteps(card.querySelector('.steps'), s.steps);
+  return card;
+}
+
+function buildPractice(p) {
+  const card = document.createElement('section');
+  card.className = 'card card-practice';
+  card.innerHTML =
+    '<div class="card-head">' +
+      '<span class="badge badge-practice">Вариант ' + p.variant + '</span>' +
+      '<h2>✏️ Реши сам</h2>' +
+    '</div>' +
+    '<p class="condition">' + p.condition + '</p>' +
+    '<div class="answer-row">' +
+      '<label>Ответ:</label>' +
+      '<input class="main-input" type="text" autocomplete="off" spellcheck="false" placeholder="введи ответ">' +
+      '<button class="btn btn-primary check-main" type="button">Проверить ответ</button>' +
+    '</div>' +
+    '<div class="feedback neutral" aria-live="polite"></div>' +
+    '<div class="tools">' +
+      '<button class="btn btn-ghost hint-btn" type="button">💡 Подсказка</button>' +
+      '<button class="btn btn-ghost reveal-btn" type="button">🔎 Показать решение (заполни пропуски)</button>' +
+    '</div>' +
+    '<div class="hints"></div>' +
+    '<div class="solution hidden">' +
+      '<div class="solution-title">Решение с пропусками</div>' +
+      '<div class="solution-steps"></div>' +
+      '<div class="solution-tools">' +
+        '<button class="btn btn-primary check-blanks" type="button">Проверить пропуски</button>' +
+        '<button class="btn btn-ghost fill-all" type="button">Показать все ответы</button>' +
+        '<span class="blank-score neutral"></span>' +
+      '</div>' +
+    '</div>';
+  renderMath(card);
+
+  const mainInput = card.querySelector('.main-input');
+  const feedback  = card.querySelector('.feedback');
+  const hintBtn   = card.querySelector('.hint-btn');
+  const revealBtn = card.querySelector('.reveal-btn');
+  const hintsBox  = card.querySelector('.hints');
+  const solution  = card.querySelector('.solution');
+  const stepsBox  = card.querySelector('.solution-steps');
+  const scoreEl   = card.querySelector('.blank-score');
+
+  function checkMain() {
+    const val = mainInput.value;
+    if (!val.trim()) {
+      feedback.className = 'feedback neutral';
+      feedback.textContent = 'Введи ответ 🙂';
+      return;
+    }
+    if (answersMatch(val, p.answer)) {
+      feedback.className = 'feedback ok';
+      feedback.textContent = '✅ Верно! Отличная работа.';
+      mainInput.classList.remove('wrong');
+    } else {
+      feedback.className = 'feedback err';
+      feedback.textContent = '❌ Пока неверно. Проверь вычисления и попробуй ещё раз.';
+    }
+  }
+  card.querySelector('.check-main').addEventListener('click', checkMain);
+  mainInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') checkMain(); });
+
+  let hintIdx = 0;
+  hintBtn.addEventListener('click', function () {
+    if (hintIdx >= p.hints.length) return;
+    const div = document.createElement('div');
+    div.className = 'hint';
+    div.innerHTML = '<span class="hint-num">💡 Подсказка ' + (hintIdx + 1) + ':</span> ' + p.hints[hintIdx];
+    hintsBox.appendChild(div);
+    renderMath(div);
+    hintIdx++;
+    if (hintIdx >= p.hints.length) {
+      hintBtn.disabled = true;
+      hintBtn.textContent = '💡 Подсказки закончились';
+    }
+  });
+
+  let rendered = false;
+  revealBtn.addEventListener('click', function () {
+    solution.classList.remove('hidden');
+    if (!rendered) {
+      renderSteps(stepsBox, p.solution.steps);
+      rendered = true;
+    }
+    revealBtn.disabled = true;
+    revealBtn.textContent = '🔎 Решение открыто';
+    solution.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+  card.querySelector('.check-blanks').addEventListener('click', function () {
+    const inputs = stepsBox.querySelectorAll('input.blank');
+    if (!inputs.length) return;
+    let ok = 0;
+    inputs.forEach(function (inp) {
+      const good = answersMatch(inp.value, inp.dataset.answer);
+      inp.classList.toggle('correct', good);
+      inp.classList.toggle('wrong', !good);
+      if (good) ok++;
+    });
+    scoreEl.textContent = 'Верно: ' + ok + ' из ' + inputs.length;
+    scoreEl.className = 'blank-score ' + (ok === inputs.length ? 'ok' : 'err');
+  });
+
+  card.querySelector('.fill-all').addEventListener('click', function () {
+    stepsBox.querySelectorAll('input.blank').forEach(function (inp) {
+      inp.value = inp.dataset.answer;
+      inp.classList.remove('wrong');
+      inp.classList.add('correct');
+    });
+    scoreEl.textContent = 'Все ответы показаны';
+    scoreEl.className = 'blank-score ok';
+  });
+
+  return card;
+}
+
+/* =========================================================
+   6. НАВИГАЦИЯ
+   ========================================================= */
+const sections = Array.from(new Set(groups.map(function (g) { return g.section; })));
+let currentSection = sections[0];
+let currentGroupId = groups.filter(function (g) { return g.section === currentSection; })[0].id;
+
+const sectionTabsEl = document.getElementById('sectionTabs');
+const topicTabsEl   = document.getElementById('topicTabs');
+const contentEl     = document.getElementById('content');
+
+function renderTabs() {
+  sectionTabsEl.innerHTML = '';
+  sections.forEach(function (sec) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tab' + (sec === currentSection ? ' active' : '');
+    btn.textContent = sec;
+    btn.addEventListener('click', function () {
+      if (sec === currentSection) return;
+      currentSection = sec;
+      currentGroupId = groups.filter(function (g) { return g.section === sec; })[0].id;
+      renderTabs(); renderContent();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    sectionTabsEl.appendChild(btn);
+  });
+
+  topicTabsEl.innerHTML = '';
+  groups.filter(function (g) { return g.section === currentSection; }).forEach(function (g) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tab secondary' + (g.id === currentGroupId ? ' active' : '');
+    btn.textContent = g.topic;
+    btn.addEventListener('click', function () {
+      if (g.id === currentGroupId) return;
+      currentGroupId = g.id;
+      renderTabs(); renderContent();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    topicTabsEl.appendChild(btn);
+  });
+}
+
+function renderContent() {
+  const g = groups.filter(function (x) { return x.id === currentGroupId; })[0];
+  if (!g) return;
+
+  contentEl.innerHTML = '';
+
+  const title = document.createElement('div');
+  title.className = 'topic-title';
+  title.innerHTML = g.section + ' <span>→</span> ' + g.topic;
+  contentEl.appendChild(title);
+
+  contentEl.appendChild(buildExample(g));
+  g.practices.forEach(function (p) { contentEl.appendChild(buildPractice(p)); });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  renderTabs();
+  renderContent();
+});
+</script>
+</body>
+</html>
